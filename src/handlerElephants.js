@@ -7,16 +7,17 @@ const averageAge = ({ residents }) =>
   residents.reduce((sum, elephant) => sum + elephant.age, 0) / residents.length;
 
 const computeData = (param, elephants) => {
-  switch (param) {
-  case 'count':
-    return elephants.residents.length;
-  case 'names':
-    return elephants.residents.map((elephant) => elephant.name);
-  case 'averageAge':
-    return averageAge(elephants);
-  default:
-    return null;
-  }
+  const methods = {
+    count() { return elephants.residents.length; },
+    names() { return elephants.residents.map((elephant) => elephant.name); },
+    averageAge() { return averageAge(elephants); },
+    location() { return elephants.location; },
+    popularity() { return elephants.popularity; },
+    availability() { return elephants.availability; },
+
+  };
+
+  return methods[param]();
 };
 
 const handlerElephants = (param) => {

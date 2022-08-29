@@ -5,6 +5,10 @@ describe('Testes da função HandlerElephants', () => {
     expect(handlerElephants()).toBeUndefined();
   });
 
+  it('Deve ser uma função', () => {
+    expect(typeof handlerElephants).toBe('function');
+  });
+
   test('funcao com parametro numerico retorna mensagem de erro', () => {
     expect(handlerElephants(4)).toBe('Parâmetro inválido, é necessário uma string');
   });
@@ -31,5 +35,9 @@ describe('Testes da função HandlerElephants', () => {
 
   test('funcao com parametro "availability" retorna um array de dias da semana que não contém Monday', () => {
     expect(handlerElephants('availability')).not.toContain('Monday');
+  });
+
+  it('a função deve retornar null com parâmetro deconhecido', () => {
+    expect(handlerElephants('13')).toEqual(null);
   });
 });

@@ -11,9 +11,6 @@ const computeData = (param, elephants) => {
     count() { return elephants.residents.length; },
     names() { return elephants.residents.map((elephant) => elephant.name); },
     averageAge() { return averageAge(elephants); },
-    location() { return elephants.location; },
-    popularity() { return elephants.popularity; },
-    availability() { return elephants.availability; },
 
   };
 

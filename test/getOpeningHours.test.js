@@ -10,13 +10,15 @@ const objExpected = {
   Monday: { open: 0, close: 0 },
 };
 
+const close = 'The zoo is closed';
+
 describe('Testes da função getOpeningHours', () => {
   it('Se nao receber parametros retorna um objetos com todos os dias', () => {
     expect(getOpeningHours()).toEqual(objExpected);
   });
 
   it('Se receber parametro Monday 09:00-AM deve dizer que o zoologico ta fechado', () => {
-    expect(getOpeningHours('Monday', '09:00-AM')).toBe('The zoo is closed');
+    expect(getOpeningHours('Monday', '09:00-AM')).toBe(close);
   });
 
   it('Se receber parametro Tuesday 09:00-AM deve dizer que o zoologico ta aberto', () => {
@@ -24,7 +26,7 @@ describe('Testes da função getOpeningHours', () => {
   });
 
   it('Se receber parametro Wednesday 09:00-PM deve dizer que o zoologico ta fechado', () => {
-    expect(getOpeningHours('Wednesday', '09:00-PM')).toBe('The zoo is closed');
+    expect(getOpeningHours('Wednesday', '09:00-PM')).toBe(close);
   });
 
   it('Para os argumentos Friday e 09:00-ZM deve lançar uma exceção', () => {
@@ -52,7 +54,6 @@ describe('Testes da função getOpeningHours', () => {
   });
 
   it('Para os argumentos Friday e 11:20-AM deve lançar uma exceção', () => {
-    expect(getOpeningHours('Friday', '12:00-AM')).toBe('The zoo is closed');
+    expect(getOpeningHours('Friday', '12:00-AM')).toBe(close);
   });
-  
 });
